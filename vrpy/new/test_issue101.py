@@ -23,17 +23,16 @@ class TestIssue101_small:
             self.G, load_capacity=10, time_windows=True
         )
 
-        # 重置标志
         debug_cg.called = False
 
     def test_cspy(self):
         self.prob.solve()
-        assert debug_cg.called, "没触发 _find_columns，说明没走列生成！"
+        assert debug_cg.called, "The _find_columns is not triggered, which means that the column generation is not taken！"
         self.prob.check_arrival_time()
         self.prob.check_departure_time()
 
     def test_lp(self):
         self.prob.solve(cspy=False)
-        assert debug_cg.called, "LP 模式下也应该走列生成！"
+        assert debug_cg.called, "Column generation should also be done in LP mode!！"
         self.prob.check_arrival_time()
         self.prob.check_departure_time()
