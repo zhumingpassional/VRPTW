@@ -4,13 +4,10 @@ import functools
 import vrpy.vrp as vrp_module
 cd C:\Users\casia\projects\vrpy_clone
 
-# 如果已经有 upstream，先换 URL
+
 git remote set-url upstream https://github.com/zhumingpassional/vrpy.git
 
-# 或者如果还没设
-# git remote add upstream https://github.com/zhumingpassional/vrpy.git
 
-# 再 fetch
 git fetch upstream
 
 called = False
